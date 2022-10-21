@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for socialpost in socialpost_list %}
+<div class="container">
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ socialpost.title }}</span> &middot;
+        <span class="text-muted">by {{ socialpost.author }} | {{ socialpost.date }}</span>
+        </div>
+    <div class="card-body">
+        {{ socialpost.body }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> | <a href="{% url 'socialpost_delete' socialpost.pk %}">Delete</a>
+    </div>
+</div>
+<br/>
+</div>
+{% endfor %}
+{% endblock content %}

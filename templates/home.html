@@ -4,9 +4,8 @@
 
 <div class="container">
 {% if user.is_authenticated %}
-    Hello {{ user.username }}! Welcome back. You are {{ user.age }} years old
-    <p></p>  
-    Your tagline is: "{{ user.tagline }} "
+    Hello {{ user.username }}! Welcome back. You are {{ user.age }} years old. Your tagline is: "{{ user.tagline }}"
+    
     <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
     <p>You are not logged in</p>

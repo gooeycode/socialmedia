@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+     <h1>Delete</h1>
+     <form action="" method="post">{% csrf_token %}
+        <p> Are you sure yo want to delete your post'{{ socialpost.title }}' ?</p>
+        <button class="btn btn-danger ml-2" type="submit"> Delete </button>
+     </form>
+    </div>
+{% endblock content %}

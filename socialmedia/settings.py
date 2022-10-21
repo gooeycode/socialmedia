@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'socialpost.apps.SocialpostConfig',
 
     #3rd party apps
     'crispy_forms',

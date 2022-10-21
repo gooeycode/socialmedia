@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="socialpost-entry">
+        <h2> {{ socialpost.title }}</h2>
+        <p> {{ socialpost.author }} | {{ socialpost.date }}</p>
+        <p> {{ socialpost.body }}</p>
+    </div>
+    <p><a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> |
+        <a href="{% url 'socialpost_delete' socialpost.pk %}">Delete</a></p>
+        <p>Back to <a href="{% url 'socialpost_list' %}">View All Social Posts</a>.</p>
+</div>
+{% endblock content %}
+

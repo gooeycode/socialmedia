@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Datallite\desktop\code\socialmedia\.venv"
+VIRTUAL_ENV="C:\Users\30081692\downloads\django\socialmedia\.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
