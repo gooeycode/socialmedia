@@ -1,15 +1,36 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags  %}
 
 {% block content %}
 <div class="container">
+
+
+    <div class="card-header"> 
     <div class="socialpost-entry">
         <h2> {{ socialpost.title }}</h2>
         <p> {{ socialpost.author }} | {{ socialpost.date }}</p>
         <p> {{ socialpost.body }}</p>
     </div>
-    <p><a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> |
+    </div>
+    <div class="card-body">
+    <h4>Comments</h4>
+        {% for comment in socialpost.comment_set.all %}
+            <p>{{ comment.author }} &middot; {{ comment }}</p>
+        {% endfor %}
+    <hr>
+    </div>
+
+    <div class="card-footer">
+        <h4>Add a comment</h4>
+            <form action="" method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-success ml-2" type="submit">Save</button>
+            </form>
+        <p><a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> |
         <a href="{% url 'socialpost_delete' socialpost.pk %}">Delete</a></p>
         <p>Back to <a href="{% url 'socialpost_list' %}">View All Social Posts</a>.</p>
+
+    </div>
 </div>
 {% endblock content %}
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags  %}
 {% block content %}
 
 {% for socialpost in socialpost_list %}
@@ -11,10 +11,23 @@
         </div>
     <div class="card-body">
         {{ socialpost.body }}
+        <p> <a href="{% url 'socialpost_detail' socialpost.pk %}">Post a comment</a>.</p>
     </div>
     <div class="card-footer text-center text-muted">
-        <a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> | <a href="{% url 'socialpost_delete' socialpost.pk %}">Delete</a>
+        <a href="{% url 'socialpost_edit' socialpost.pk %}">Edit</a> |
+        <a href="{% url 'socialpost_delete' socialpost.pk %}">Delete</a>
     </div>
+    <div class="card-footer">
+        {% for comment in socialpost.comment_set.all %}
+        <p>
+            <span class="font-weight-bold">
+            {{ comment.author }}  &middot;
+            </span>
+            {{ comment }}
+        </p>
+        {% endfor %}
+    </div>
+
 </div>
 <br/>
 </div>
